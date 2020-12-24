@@ -9,7 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WinOff.Ventanas {
+
     public partial class Home : Form {
+
 
         //Variables globales.
         bool estado = false;
@@ -19,6 +21,15 @@ namespace WinOff.Ventanas {
         //Constructor.
         public Home() {
             InitializeComponent();
+        }
+
+        //Codigo para activar el doble buffer
+        protected override CreateParams CreateParams {
+            get{
+                CreateParams handleparam = base.CreateParams;
+                handleparam.ExStyle |= 0x02000000;
+                return handleparam;
+            }
         }
 
         //Evento load del Form principal para cargar la cantidad de tiempo.
